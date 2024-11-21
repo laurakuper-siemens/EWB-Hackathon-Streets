@@ -20,7 +20,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
 ]
 dependencies = [
-
+    "osmnx"
 ]
 
 # root folder of the python/django not found automatically
