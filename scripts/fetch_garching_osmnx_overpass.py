@@ -10,7 +10,6 @@ if __name__ == "__main__":
     poly_buff, _ = projection.project_geometry(poly_proj_buff, crs=crs_utm, to_latlong=True)
 
     response_jsons = _overpass._download_overpass_network(poly_buff, "all", None)
-    i = 0
     for response_json in response_jsons:
         print(response_json)
         break
