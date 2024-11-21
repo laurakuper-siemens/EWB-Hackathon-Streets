@@ -30,7 +30,7 @@ jobs:
 
       - name: Format Python code with black
         run: |
-          black --config pyproject.toml 
+          black --config pyproject.toml src scripts
               
       - name: Analysing the code with pylint
         run: |
