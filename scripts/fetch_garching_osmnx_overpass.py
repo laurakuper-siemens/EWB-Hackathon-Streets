@@ -1,5 +1,7 @@
 import osmnx as ox
 from osmnx import projection, _overpass
+import geopandas as gpd
+import pandas as pd
 
 if __name__ == "__main__":
 
@@ -16,6 +18,12 @@ if __name__ == "__main__":
     response_jsons = _overpass._download_overpass_network(
         poly_buff, "all", None
     )
+    out = None
     for response_json in response_jsons:
-        print(response_json)
+        out = response_json
         break
+    df = pd.DataFrame(out["elements"])
+    gdf = gpd.GeoDataFrame(
+        df, geometry=gpd.points_from_xy(df.lat, df.lon), crs="EPSG:4326"
+    )
+    print(gdf)
