@@ -9,6 +9,8 @@ if __name__ == "__main__":
     )
     G_simple = ox.simplify_graph(G_full, edge_attrs_differ="name")
 
+    gdf_nodes, gdf_edges = ox.graph_to_gdfs(G_simple)
+
     fig, ax = ox.plot_graph(G_full)
     plt.savefig("Garching-OSMNX-full.pdf")
     fig, ax = ox.plot_graph(G_simple)
